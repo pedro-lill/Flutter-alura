@@ -1,4 +1,4 @@
-# curso
+# Primeiro curso em Flutter
 
 A new Flutter project.
 
