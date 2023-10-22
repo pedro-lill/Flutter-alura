@@ -1,0 +1,89 @@
+// esse arquivo de texto terá algumas infos sobre o uso do flutter
+
+// 1. O flutter é um framework para desenvolvimento de apps multiplataforma
+// 2. O flutter é baseado em Dart, uma linguagem de programação orientada a objetos
+// 3. O flutter é um framework de código aberto
+// 4. O flutter é um framework de desenvolvimento de apps nativos
+// 5. O flutter é um framework de desenvolvimento de apps híbridos
+// 6. O flutter é um framework de desenvolvimento de apps para Android
+// 7. O flutter é um framework de desenvolvimento de apps para iOS
+// 8. O flutter é um framework de desenvolvimento de apps para Web
+// 9. O flutter é um framework de desenvolvimento de apps para Windows
+// 10. O flutter é um framework de desenvolvimento de apps para Linux
+// 11. O flutter é um framework de desenvolvimento de apps para MacOS
+
+
+//Sobre os estados do flutter
+1.stateless - não tem estado
+2.stateful - tem estado
+3.inherited - herda estado
+
+como funcionam
+1. stateless - não tem estado, não muda
+    As características de um stateless são:
+    - não tem estado
+    - não tem ciclo de vida
+    - não tem gerenciamento de estado
+    - não tem atualização de estado
+    - não tem atualização de tela
+    - não tem atualização de widget
+    - não tem atualização de componente
+    - não tem atualização de página
+    - não tem atualização de tela
+
+2. stateful - tem estado, muda
+    As características de um stateful são:
+    - tem estado
+    - tem ciclo de vida
+    - tem gerenciamento de estado
+    - tem atualização de estado
+    - tem atualização de tela
+    - tem atualização de widget
+    - tem atualização de componente
+    - tem atualização de página
+    - tem atualização de tela
+
+3. inherited - herda estado
+    As características de um inherited são:
+    - herda estado
+    - herda ciclo de vida
+    - herda gerenciamento de estado
+    - herda atualização de estado
+    - herda atualização de tela
+    - herda atualização de widget
+    - herda atualização de componente
+    - herda atualização de página
+    - herda atualização de tela
+
+
+    explicando o que é o context
+
+    O context é um objeto que contém informações sobre o ambiente atual do app.
+
+    por exemplo em TaskInheritedWidget.of(widget.taskContext).taskList
+o context é o widget.taskContext
+o parametro widget.taskContext é o context
+
+    explicando o que é o widget
+
+    O widget é um objeto que contém informações sobre o ambiente atual do app.
+
+    por exemplo em TaskInheritedWidget.of(widget.taskContext).taskList
+o widget é o widget.taskContext
+o parametro widget.taskContext é o widget
+
+    explicando o que é o state
+
+    O state é um objeto que contém informações sobre o ambiente atual do app.
+
+    por exemplo em TaskInheritedWidget.of(widget.taskContext).taskList
+o state é o widget.taskContext
+o parametro widget.taskContext é o state
+
+    explicando o que é o stateless
+
+    O stateless é um objeto que contém informações sobre o ambiente atual do app.
+
+    por exemplo em TaskInheritedWidget.of(widget.taskContext).taskList
+
+o método é o : .of(widget.taskContext).taskList

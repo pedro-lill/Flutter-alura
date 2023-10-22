@@ -1,18 +1,28 @@
 import 'package:curso/Components/difficulty.dart';
+import 'package:curso/data/taskDAO.dart';
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
   final String nome;
   final String foto;
   final int dificuldade;
-  const Task(this.nome, this.foto, this.dificuldade, {super.key});
+  Task(this.nome, this.foto, this.dificuldade, {super.key});
+
+  int nivel = 0;
 
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-  int nivel = 0;
+  bool assetOrNetwork() {
+    if (widget.foto.contains('http')) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +31,7 @@ class _TaskState extends State<Task> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(4)),
+                color: Colors.green, borderRadius: BorderRadius.circular(4)),
             height: 140,
           ),
           Column(
@@ -42,10 +52,15 @@ class _TaskState extends State<Task> {
                       height: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: Image.asset(
-                          widget.foto,
-                          fit: BoxFit.cover,
-                        ),
+                        child: assetOrNetwork()
+                            ? Image.asset(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.network(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              ),
                       ),
                     ),
                     Column(
@@ -69,9 +84,12 @@ class _TaskState extends State<Task> {
                       height: 50,
                       width: 50,
                       child: ElevatedButton(
+                          onLongPress: () {
+                            TaskDao().delete(widget.nome);
+                          } ,
                           onPressed: () {
                             setState(() {
-                              nivel++;
+                              widget.nivel++;
                             });
                           },
                           child: const Column(
@@ -99,7 +117,7 @@ class _TaskState extends State<Task> {
                       child: LinearProgressIndicator(
                         color: Colors.red,
                         value: (widget.dificuldade > 0)
-                            ? (nivel / widget.dificuldade) / 10
+                            ? (widget.nivel / widget.dificuldade) / 10
                             : 1,
                       ),
                     ),
@@ -107,7 +125,7 @@ class _TaskState extends State<Task> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      ' Nivel: $nivel',
+                      ' Nivel: ${widget.nivel}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
